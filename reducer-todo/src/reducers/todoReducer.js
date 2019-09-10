@@ -37,6 +37,11 @@ export const todoReducer = (state, action) => {
                     }
                   });
                   return toggled;
+        case 'REMOVE_COMPLETED':
+                if (state.completed === true) {
+                    state.filter(item => item.completed)  
+                }
+                
         default:
             return state;
     }

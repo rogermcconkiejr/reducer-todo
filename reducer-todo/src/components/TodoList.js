@@ -15,7 +15,7 @@ const TodoList = () => {
             {state.map(state =>{
                 return (
                 <div>
-                 <li className = {`todo${state.completed ? ' completed' : ''}`} onClick={() => dispatch({ type: 'TOGGLE_TODO', payload: state.id})}>Todo: {state.item}</li>
+                 <li className = {`${state.completed ? ' completed' : ''}`} onClick={() => dispatch({ type: 'TOGGLE_TODO', payload: state.id})}>Todo: {state.item}</li>
                 </div>
                 )
                 
@@ -23,6 +23,7 @@ const TodoList = () => {
         <div className = "formContainer">
             <input className = "itemField"/>
             <button onClick ={() => dispatch({ type: 'ADD_TODO', payload: `${document.querySelector('input').value}`})}>Add Item to List</button>
+            <button onClick = {() => dispatch({ type: 'REMOVE_COMPLETED'})}>Remove Completed</button>
         </div>
 
         </div>
