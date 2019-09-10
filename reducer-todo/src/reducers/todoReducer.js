@@ -16,5 +16,16 @@ export const initialState = [{
 
 export const todoReducer = (state, action) => {
     //actions: ADD_TODO, TOGGLE_TODO
-    return state;
-}
+    switch(action.type){
+        case 'ADD_TODO':
+            return {
+                ...state,
+            };
+        case 'TOGGLE_TODO':
+            return {
+                ...state,
+            };
+        default:
+            return state;
+    }
+};
