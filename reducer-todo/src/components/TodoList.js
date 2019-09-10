@@ -15,13 +15,11 @@ const TodoList = () => {
             {state.map(item =>(
                 <ol> 
                 <li>Todo: {item.item} </li>
-                <li className="idList">ID: {item.id}</li>
-                <li className="completedList">Completed: {item.completed}</li>
                 </ol>
             ))}
         <div className = "formContainer">
             <input className = "itemField"/>
-            <button onClick ={() => dispatch({ type: 'ADD_TODO' })}>Add Item to List</button>
+            <button onClick ={() => dispatch({ type: 'ADD_TODO', payload: `${document.querySelector('input').value}`})}>Add Item to List</button>
         </div>
 
         </div>

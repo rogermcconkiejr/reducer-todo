@@ -18,9 +18,13 @@ export const todoReducer = (state, action) => {
     //actions: ADD_TODO, TOGGLE_TODO
     switch(action.type){
         case 'ADD_TODO':
-            return {
-                ...state,
-            };
+            return [...state,
+                {
+                item:action.payload,
+                completed:false,
+                id: Date.now()
+            }
+            ];
         case 'TOGGLE_TODO':
             return {
                 ...state,
