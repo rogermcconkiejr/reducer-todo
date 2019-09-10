@@ -12,11 +12,14 @@ const TodoList = () => {
     return (
         <div>
             <h1>List of Todos:</h1>
-            {state.map(item =>(
-                <ol> 
-                <li>Todo: {item.item} </li>
-                </ol>
-            ))}
+            {state.map(state =>{
+                return (
+                <div>
+                 <li className = {`todo${isComplete ? ' completed' : ''}`} onClick={() => dispatch({ type: 'TOGGLE_TODO', payload: state.id})}>Todo: {state.item}</li>
+                </div>
+                )
+                
+            })}
         <div className = "formContainer">
             <input className = "itemField"/>
             <button onClick ={() => dispatch({ type: 'ADD_TODO', payload: `${document.querySelector('input').value}`})}>Add Item to List</button>

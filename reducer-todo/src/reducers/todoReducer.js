@@ -23,12 +23,20 @@ export const todoReducer = (state, action) => {
                 item:action.payload,
                 completed:false,
                 id: Date.now()
-            }
+                }
             ];
         case 'TOGGLE_TODO':
-            return {
-                ...state,
-            };
+                let toggled = state.map(item => {
+                    if (item.id === action.payload) {
+                      return {
+                        ...item,
+                        completed: !item.completed
+                      };
+                    } else {
+                      return item;
+                    }
+                  });
+                  return toggled;
         default:
             return state;
     }
