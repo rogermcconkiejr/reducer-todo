@@ -15,7 +15,7 @@ const TodoList = () => {
             {state.map(state =>{
                 return (
                 <div>
-                 <li className = {`todo${isComplete ? ' completed' : ''}`} onClick={() => dispatch({ type: 'TOGGLE_TODO', payload: state.id})}>Todo: {state.item}</li>
+                 <li className = {`todo${state.completed ? ' completed' : ''}`} onClick={() => dispatch({ type: 'TOGGLE_TODO', payload: state.id})}>Todo: {state.item}</li>
                 </div>
                 )
                 
